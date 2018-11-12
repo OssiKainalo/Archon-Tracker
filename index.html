@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Heebo|Maven+Pro" rel="stylesheet">
+
+
+    <script>
+      var hvalue = 0;
+
+      function clearHouse(obj) {
+
+          if(hvalue > 0) {
+          hvalue--;
+          console.log("hvalue on " + hvalue);
+          document.getElementById(obj).src='frame.png';
+          }
+      } //clearhouse
+
+    function addHouse(obj) {
+
+      if (hvalue == "0"){
+          document.getElementById("house1").src=obj;
+          hvalue++;
+          console.log("hvalue on " + hvalue);
+          }
+
+      else if (hvalue == "1"){
+      document.getElementById("house2").src=obj;
+      hvalue = 2;
+      console.log("hvalue on " + hvalue);
+      }
+
+
+      else if (hvalue == "2"){
+      document.getElementById("house3").src=obj;
+      hvalue = 3;
+      console.log("hvalue on " + hvalue)
+      }
+    } //addHouse
+
+      function printItem(){
+       document.getElementById("stable").innerHTML+=
+       "<tr>"+"<td>"+dname.value+"</td>"
+       +"<td>"+"</td>"
+       +"<td>"+0+"</td>"
+       +"<td>"+0+"</td>"
+       +"<td>"+0+"</td>"
+       +"<td>"+0+"</td>"
+       +"<td>"+"</td>"
+       +"<td>"+"<img src='brobnari.png' width='16' height='16' onclick=removeRow(this)>"+"</td>"
+       +"</tr>";
+      }//printItem
+
+      function removeRow(obj){
+        return confirm('Are you sure?');
+        document.getElementById("stable").deleteRow(obj.parentElement.parentElement.rowIndex);
+      }
+
+      function printMatch(){
+        document.getElementById("stable2").innerHTML+=
+        "<tr>"+"<td>"+winner.value+"</td>"
+        +"<td>"+"-"+"</td>"
+        +"<td>"+loser.value+"</td>"+"</tr>"
+      }
+
+
+    </script>
+</head>
+<body>
+
+<div id="box">
+    <div id=phone>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="logo.png">
+
+    <h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Add new deck:<p>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;  Archon:  <input id="dname" name="dname" rows="1" cols="25"></input>
+
+  <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img id="house1" src="frame.png" onclick="clearHouse('house1')">
+            <img id="house2" src="frame.png" onclick="clearHouse('house2')">
+            <img id="house3" src="frame.png" onclick="clearHouse('house3')">
+
+            <br>
+
+            <img id="brobnar" src="brobnari.png" onclick="addHouse('brobnarf.png')" onmouseover=src="brobnars.png" onmouseout=src="brobnari.png">
+            <img id="logos" src="logosi.png" onclick="addHouse('logosf.png')" onmouseover=src="logoss.png" onmouseout=src="logosi.png">
+            <img id="shadows" src="shadowsi.png" onclick="addHouse('shadowsf.png')" onmouseover=src="shadowss.png" onmouseout=src="shadowsi.png">
+            <img id="sanctum" src="sanctumi.png" onclick="addHouse('sanctumf.png')" onmouseover=src="sanctums.png" onmouseout=src="sanctumi.png">
+              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img id="mars" src="marsi.png" onclick="addHouse('marsf.png')" onmouseover=src="marss.png" onmouseout=src="marsi.png">
+            <img id="dis" src="disi.png" onclick="addHouse('disf.png')" onmouseover=src="diss.png" onmouseout=src="disi.png">
+            <img id="untamed" src="untamedi.png" onclick="addHouse('untamedf.png')" onmouseover=src="untameds.png" onmouseout=src="untamedi.png">
+
+            <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Add" onclick="printItem()">
+    </h2
+  </div> <!-- phone-->
+  </div>
+  <div id=phone2>
+    <h3>Standings</h3>
+    <div id=stableframe>
+        <table id=stable>
+
+          <tr>
+            <td>Archon</td>
+            <td>Houses</td>
+            <td>Points</td>
+            <td>Wins</td>
+            <td>Losses</td>
+            <td>Matches</td>
+            <td>Winrate</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Radiant Argus the Supreme</td>
+            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td><img src='brobnari.png' width='16' height='16'</td>
+          </tr>
+
+          <tr>
+            <td>Miss &quot;Onyx&quot; Censorius</td>
+            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td><img src='brobnari.png' width='16' height='16'</td>
+          </tr>
+
+
+         </table>
+       </div> <!-- stableframe -->
+  </div> <!-- phone2-->
+</div>
+    <div id=phone3>
+      <h3>Matches</h3>
+      <p>
+        <form onsubmit="return false">
+            <select name="Winner" id="winner">
+                <option value="winner">Winner</option>
+                <option value="Radiant Argus the Supreme">Radiant Argus the Supreme</option>
+                <option value="Miss &quot;Onyx&quot; Censorius">Miss "Onyx" Censorius</option>
+            </select>
+            <select name="Loser" id="loser">
+                <option value="loser">Loser</option>
+                <option value="Radiant Argus the Supreme">Radiant Argus the Supreme</option>
+                <option value="Miss &quot;Onyx&quot; Censorius">Miss "Onyx" Censorius</option>
+            </select>
+            <input type="submit" value="Add" onclick="printMatch()">
+
+            <div id=stableframe2>
+                <table id=stable2>
+                  <tr>
+                    <td>Winner</td>
+                    <td></td>
+                    <td>Loser</td>
+                  </tr>
+                 </table>
+               </div> <!-- stableframe2 -->
+      <!--  <form method="post"
+
+          <label for="Home">Home</label>
+          <select id="Home">
+
+          </select>
+          <label for="Guest">Guest</label>
+          <select id="Guest">
+
+          </select>
+
+
+      <input type="submit" value="submit">
+    </form>
+-->
+    </div> <!-- Matches-->
+  </div>
+
+
+</div> <!--box-->
+
+</body>
+
+</html>
